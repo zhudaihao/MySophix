@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.wqgallery.mysophix">
+
+    <!--sophix热修复权限-->
+    <!--网络权限-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--外部存储读权限，调试工具加载本地补丁需要-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".MyApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--sophix热修-->
+        <!--下面信息可以在应用管理》移动热修复》应用信息-->
+        <!--27583138就是 AppKey-->
+        <!--63deb75f39dbcb0522b876d617c8f2b2就是 AppSecret-->
+        <!--MIIEvgIBADAN....就是 RSA-->
+        <meta-data
+            android:name="com.taobao.android.hotfix.IDSECRET"
+            android:value="27583138" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.APPSECRET"
+            android:value="63deb75f39dbcb0522b876d617c8f2b2" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.RSASECRET"
+            android:value="MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC8DeK3j5qEhTObwZ3yy12r7Pp67PhADTuKZhhELfk17dFL9m6X9DNn2QkU0pNr2y/Xb4XK7AQ09VHCjFtL0QNUdBd1ODAvRPxBjroroCeQZW8XEcwaR0UmGks/jmW1noShCIBnB3ihJu6WU9Zp1qmFN+ItBP8C3pbVsonuh/PwMumB0iu6ZMSWcPNL8NTOyS6m5plehAFA0kM1GW7TlNlRodQZ0RBHI/Sa3T/DnoCsdhpHhsKtwVDfMkVtaxxHywbyJO20FFsVP4Lj94T4MH0C1U+omoADOywZPsEtD3DMwm0YQy8BKIuL35iA9DPhsQD9OnrMKoWoTqWpug/LBk3TAgMBAAECggEAP7XImH27UKg7+snWtBn36zZHCfxcgn65LEM4d2jH5GBkpwKfJzXhcI5UCEzrCwBgLfGndz8MkdCG2Y1ppL70DNmj1N+rW2hYufEb24nPvZjP0RYDeueoYqdH1QluJeDFeDUEI2Ohl58z95QBsSu7lNmA89Wce6FjopRxLHG80CQpTwPV+AxrHsIIYUp1OX1wr92gR3ZD+AauifnOqK22IFebnbClsOF5qvPH6hOBlLFhbxNb5qgQvnx3bs+/o3wIRQxXRj4zyBCvEg/UjdswOr9FcUGo1wJ+bb4YoBzVGBbj2rnLsFC4uKoces7dpho0rmRXqX7+VTuNLHO4fQ0EcQKBgQD9CRkdIMbm3LtXD0KXrOLbWOsjlDdl2iszptm5rJ5ABs/wMhzqR5YAmiApxKwZlDNrM21K1+AwbWPG9tDF4mgDzq8DtoDoDLDfXX3V8JcyR0EQT42F6oQGOm0K/VQak2OGXAIj0ysvnSxN0vXm6SrXBZli4e7L5JDQl9q0jGosOwKBgQC+QeVsr5yD4cBR7yS3AT05iwqY6NX7UMLdUtHDEyaH+T+WP04vOklJK3yQ04sQQp8+vJnU4dYcagtlcKa9EVk82FjplItAUk8eW2aGe31RuHu4lFYt/DiUD0MX2r0zyPQiaEv+C7TS2R5A7R2xBzztk/PPDxZKL7uLcHologEDSQKBgCRmrqo2EOcdUgYQN/BB+tC7VfhkViPc4uInWqMPZiSn1joju20opzem9IGNvYRggZUmbM6bh7Dvy67PyvDsxTHnBd5u3tSDHt7DQFsKpXWiMoX6K83cEuoidZVjJDo+gc7OZbBprIjI/5qigqWZXYRZVduXzRaf5wVbEyduG8gJAoGBAJf4EsWp0B8Xp4LKvkzfVIQuJ5zT/nfrnnsiuCJVnaVm1f+xOUZIDFnBvpIAJ0gprwFxrH56lYfEvK2eOdEzllAfj4Wj/Ua3eDMLVu18njE0Zr6c3emFWbwKJNFdC1vd3APPw0N9HkZ83smFnP3WhjhOwaRWrLs9PVS31xlQOfbhAoGBAKIERwcECnCldWuq8ndWmxslvC2G0i9GLJOi7miaTdq5j97l6D24QLUUjhkk5N2DglsLCOE4gLB1CjikTd79O6JES7rNFEBkQbWWgLsJlklq6SnQ/7ll9DjKvIBQR7FoFoB9pcNmvF/+YlvT+KkbhEgCu+SnyyN0EcCZ0hq2xmZD" />
+    </application>
+
+</manifest>
